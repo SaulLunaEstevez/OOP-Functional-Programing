@@ -1,0 +1,124 @@
+//Creation of the animal class
+class animals {
+  //This function gives a description of the animal
+  def description(specie: String, name: String, age: Int): Unit ={ //function where the animals attributes are declared
+    println("The "+specie+ " is called "+name+" and has "+age+" years old")//print of the animal information with the information of the followings functions
+  }
+  def alimentar (specie: String, name: String, age: Int): Unit ={ //Fubction about the alimentation information
+    // each animal have a special kind of alimentation
+
+    if (specie == "Leon"){
+      println("Feed in the feeder with seeds")
+    }
+    if (specie == "Eagle"){
+      println("Feed by releasing the meat in the feeder")
+    }
+
+    if (specie == "Deer"){
+      println("Feed with pine leaves and special proteins")
+    }
+
+    if (specie == "Hippopotamus"){
+      println("Feed by releasing watermelons in their habitat")
+    }
+
+    if (specie == "Monkey"){
+      println("Feed leaving a plate with food")
+    }
+  }
+
+}
+class cuidados { //New class about the "cuidados" of an animal
+  def CheckMedico (specie: String, name: String, age: Int): Unit ={ //Fubction about the interval of time for each medical check for each animal
+    // each animal have a special interval of time
+    if (specie == "Leon"){
+      println("Check every 3 weeks")
+    }
+    if (specie == "Eagle"){
+      println("Check every 2 days")
+    }
+
+    if (specie == "Deer"){
+      println("Weekly check")
+    }
+
+    if (specie == "Hippopotamus"){
+      println("Check every 2 weeks")
+    }
+
+    if (specie == "Monkey"){
+      println("Check every month")
+    }
+  }
+  def liberacion(specie: String, name: String, age: Int){ //Functions about wich animal are in age to be free or not.
+    //If the animal have 5 or more yaers old have to be liberated
+    if (age >= 5){
+      println("The animal have to be liberated")
+      //if not just give the instructions
+    }else
+      println("When the animal turns 5, it must be released in the wild to be replaced by another")
+  }
+}
+class status { //New class about the status of an animal
+  def descripcion(social: String, entretenimento: String, espacio: String, salud: String): Unit ={
+    println("The animal has a "+social+" Social status, The animal has a "+entretenimento+" entertainment status, The animal has a "+espacio+" space status, The animal has a"+salud+"Healt status")//This function is about the healt status of an animal
+
+  }
+  def recomendaciones(social: String, entretenimento: String, espacio: String, salud: String): Unit ={//This function give recomendations foe each animal depending of its status.
+    // Depending of it is low his status give a recomendation, if are good, any warning appear
+    if (social == "Low"){
+      println("The Social status has to be improve")
+    }
+
+    if (entretenimento == "Low"){
+      println("The entertainment status has to be improve")
+    }
+
+    if (espacio == "Low"){
+      println("The Space status has to be improve")
+    }
+
+    if (salud == "Low"){
+      println("The Healt status has to be improve")
+    }
+  }
+}
+class costs{ //Class about the total cost for each animal, taking into account the all things that the animal need
+  def total(specie: String, name: String,comida: Int, mantenimiento: Int, adquisicion: Int, liberacion: Int): Int ={//total cost of an animal
+    var tc =comida+mantenimiento+adquisicion+liberacion
+    tc
+  }
+  def promedio(specie: String, name: String,comida: Int, mantenimiento: Int, adquisicion: Int, liberacion: Int): Int ={ //Average of the total cost of an animals
+
+    var ac =(comida+mantenimiento+adquisicion+liberacion)/4
+    ac
+  }
+  //This function call the other function dor give a total description of the cost of an animal
+  def costos(specie: String, name: String,comida: Int, mantenimiento: Int, adquisicion: Int, liberacion: Int): Unit ={
+    println("The total cost of the "+specie+" called "+name+" is "+total(specie, name, comida, mantenimiento, adquisicion, liberacion)+" and his average cost is: "+promedio(specie, name, comida, mantenimiento, adquisicion, liberacion))
+  }
+}
+class AnimalTypes {
+  def anml = List("Eagle", "Hippopotamus", "Leon", "Deer", "Monkey")//Creation of animal list that we can use
+  println("The List of the animals that you can use is:\n")
+  anml.foreach{println} //foreach that iterates over the list
+  println("The List of the status that you can use is:\n")
+
+  def tst = List("Stable", "Low", "Great")//Creatin of animal status list
+  tst.foreach{println}//foreach that iterates over the list and prints
+}
+//Declaration of variables and animal info.
+var e = new AnimalTypes()
+var x = new animals();
+x.description("Leon","Cimba",10)
+x.alimentar("Monkey","Goku",10)
+var y = new cuidados();
+y.CheckMedico("Deer","Bmbi",10)
+y.liberacion("Hippopotamus","Hope",4)
+var z = new status();
+z.descripcion("Stable","Great","Great","Low")
+z.recomendaciones("Low","Great","Great","Low")
+var w = new costs();
+//Print costs
+w.total("leon", "Cimba",1000, 4283, 15000, 2000)
+w.costos("leon", "Cimba",1000, 4283, 15000, 200)
